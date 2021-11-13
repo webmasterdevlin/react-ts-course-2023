@@ -7,14 +7,16 @@ const NavigationBar = () => {
   const { pathname } = useLocation();
 
   return (
-    <div>
+    <div data-testid="navigation">
       <S.NavButton
+        data-testid="work-button"
         active={pathNames.work === pathname}
         onClick={() => navigate(pathNames.work)}
       >
         WORK TODOS
       </S.NavButton>
       <S.NavButton
+        data-testid="shop-button"
         active={pathNames.shoppingList === pathname}
         onClick={() => navigate(pathNames.shoppingList)}
       >

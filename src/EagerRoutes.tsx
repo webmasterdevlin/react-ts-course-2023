@@ -4,12 +4,12 @@ import LoginPage from "./pages/LoginPage";
 import ShoppingListPage from "./pages/ShoppingListPage";
 import WorkTodosPage from "./pages/WorkTodosPage";
 
-const EagerRoutes = () => {
+const EagerRoutes = () => (
   <Routes>
     <Route path="/" element={<WorkTodosPage />} />
     <Route path="/shoppoing-list" element={<ShoppingListPage />} />
     <Route path="/auth" element={<LoginPage />} />
-  </Routes>;
-};
+  </Routes>
+);
 
 export default EagerRoutes;

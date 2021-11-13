@@ -1,15 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import CarClass from "./CarClass";
-import CarFunctional from "./CarFunctional";
+import { BrowserRouter } from "react-router-dom";
+import EagerRoutes from "./EagerRoutes";
 
 const App = () => {
   return (
-    <div className="App">
-      <CarClass />
-      <CarFunctional alergy={"Kiwi"} />
-    </div>
+    <BrowserRouter>
+      <EagerRoutes />
+    </BrowserRouter>
   );
 };
 

@@ -7,7 +7,7 @@ import WorkTodosPage from "./pages/WorkTodosPage";
 const EagerRoutes = () => (
   <Routes>
     <Route path="/" element={<WorkTodosPage />} />
-    <Route path="/shoppoing-list" element={<ShoppingListPage />} />
+    <Route path="/shopping-list" element={<ShoppingListPage />} />
     <Route path="/auth" element={<LoginPage />} />
   </Routes>
 );

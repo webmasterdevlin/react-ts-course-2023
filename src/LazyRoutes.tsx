@@ -19,8 +19,9 @@ const ShoppingListPage = Loadable(
 );
 const LoginPage = Loadable(lazy(() => import("./pages/LoginPage")));
 
+type Paths = { work: string; shoppingList: string; auth: string };
 /* we will reuse this in creating todos */
-export const pathNames: any = {
+export const pathNames: Paths = {
   work: "/",
   shoppingList: "/shopping-list",
   auth: "/auth",

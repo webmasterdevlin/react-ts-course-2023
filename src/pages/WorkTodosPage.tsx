@@ -103,18 +103,21 @@ const WorkTodosPage = () => {
               {t.completed ? (
                 <S.IconWrapper>
                   <CheckIcon
+                    data-testid="complete-button"
                     onClick={async () => await updateWorkTodoAsync(t.id, t)}
                   />
                 </S.IconWrapper>
               ) : (
                 <S.IconWrapper>
                   <CircleIcon
+                    data-testid="incomplete-button"
                     onClick={async () => await updateWorkTodoAsync(t.id, t)}
                   />
                 </S.IconWrapper>
               )}
             </div>
             <S.ItemName
+              data-testid="delete-button"
               done={t.completed}
               onClick={async () => {
                 // delete if todo id done or completed

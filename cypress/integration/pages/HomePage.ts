@@ -16,6 +16,13 @@ describe("Work Todos Page", () => {
       todosFixture.length
     );
   });
+
+  it("should remove an item after clicking the delte button", () => {
+    const index = 0;
+    cy.get("[data-testid=delete-button]").eq()
+  });
+
+  it("should add a new todo item");
 });
 
 describe.skip("Instagram", () => {

@@ -4,10 +4,15 @@
 
 import "@testing-library/cypress/add-commands";
 
-
 Cypress.Commands.add("getCommand", (url: string, responseBody: Array<any>) => {
-    cy.intercept("GET", url, {
-        status:200,
-        body: responseBody
-    })
-})
+  cy.intercept("GET", url, {
+    status: 200,
+    body: responseBody,
+  });
+});
+
+Cypress.Commands.add("deleteCommand", (url: string) => {
+  cy.intercept("DELETE", url, {
+    statusCode: 200,
+  });
+});

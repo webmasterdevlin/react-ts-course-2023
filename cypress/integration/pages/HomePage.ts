@@ -7,6 +7,7 @@ const url = "/api/todos";
 describe("Work Todos Page", () => {
   beforeEach(() => {
     cy.getCommand(url, todosFixture);
+    cy.deleteCommand(`${url}/*`);
     cy.visit("/");
   });
 
@@ -19,7 +20,11 @@ describe("Work Todos Page", () => {
 
   it("should remove an item after clicking the delte button", () => {
     const index = 0;
-    cy.get("[data-testid=delete-button]").eq()
+    cy.get("[data-testid=delete-button]").eq(index).click();
+    cy.get("[data-testid=todo-item]").should(
+      "have.length",
+      todosFixture.length - 1
+    );
   });
 
   it("should add a new todo item");

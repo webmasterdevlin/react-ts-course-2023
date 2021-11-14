@@ -44,11 +44,12 @@ const WorkTodosPage = () => {
 
   const updateWorkTodoAsync = async (id: string, todo: Todo) => {
     try {
-      await putAxios<void, Todo>(EndPoints.todos, id, todo);
+      const updatedTodo = { ...todo };
+      updatedTodo.completed = !todo.completed;
+      await putAxios<void, Todo>(EndPoints.todos, id, updatedTodo);
 
       // find the index
       const index = todos.findIndex((t) => t.id === id);
-
       todos[index].completed = !todos[index].completed;
       const updatedTodos = [...todos];
 

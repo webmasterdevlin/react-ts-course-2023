@@ -1,15 +1,16 @@
 import React, { ReactElement } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { render, RenderOptions } from "@testing-library/react";
+
+import * as S from "../views/MainLayout.style";
 import NavigationBar from "../components/NavigationBar";
 
-type Props = {
-  children: React.ReactNode;
-};
 const AllTheProviders: React.FC = ({ children }) => {
   return (
     <BrowserRouter>
-      <NavigationBar />
+      <S.Header>
+        <NavigationBar />
+      </S.Header>
       {children}
     </BrowserRouter>
   );
@@ -21,4 +22,5 @@ const customRender = (
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from "@testing-library/react";
+
 export { customRender as render };

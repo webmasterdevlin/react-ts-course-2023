@@ -31,7 +31,7 @@ const WorkTodosPage = () => {
       <div style={{ margin: "6rem 0" }}>
         <h1>Work Todos Page Works! {todos.length}</h1>
         {todos.map((t) => (
-          <S.ItemWrapper key={t.id}>
+          <S.ItemWrapper key={t.id} data-testid="todo-item">
             <div>
               {t.completed ? (
                 <S.IconWrapper>

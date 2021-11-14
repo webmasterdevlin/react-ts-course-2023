@@ -2,6 +2,7 @@
   "name": "inmeta-react-ts-2021",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
@@ -23,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "backend": "json-server --watch src/json-server/db.json --port 5000 --delay=1000 --routes src/json-server/routes.json"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +48,8 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.15",
     "@types/yup": "^0.29.13",
-    "cypress": "^9.0.0"
+    "concurrently": "^6.4.0",
+    "cypress": "^9.0.0",
+    "json-server": "^0.17.0"
   }
 }

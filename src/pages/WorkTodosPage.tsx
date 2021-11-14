@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Check as CheckIcon, Circle as CircleIcon } from "react-feather";
 
 import { EndPoints } from "../api/axiosConfig";
@@ -16,7 +16,6 @@ const WorkTodosPage = () => {
 
   useEffect(() => {
     getTodosAsync();
-    createRandomBudget();
   }, []);
 
   const getTodosAsync = async () => {
@@ -46,7 +45,16 @@ const WorkTodosPage = () => {
   return (
     <MainLayout>
       <div style={{ margin: "6rem 0" }}>
-        <h1>Work Todos Page Works! {randomValues}</h1>
+        <h2>
+          Budget for the day: $<span>{randomValues}</span>
+        </h2>
+        <S.Button
+          backgroundColor={"dodgerblue"}
+          type={"button"}
+          onClick={createRandomBudget}
+        >
+          GET RANDOM
+        </S.Button>
         {todos.map((t) => {
           console.log(t.id);
 

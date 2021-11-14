@@ -66,6 +66,7 @@ const WorkTodosPage = () => {
   };
 
   const handleSubmit = async (values: any) => {
+    setLoading(true);
     try {
       const { data } = await postAxios<Todo>(EndPoints.todos, values);
       const newTodos = [...todos, data];
@@ -73,6 +74,7 @@ const WorkTodosPage = () => {
     } catch (e) {
       console.log(e);
     }
+    setLoading(false);
   };
 
   return (

@@ -2,11 +2,17 @@ import { useCallback, useEffect, useState } from "react";
 import { Check as CheckIcon, Circle as CircleIcon } from "react-feather";
 
 import { EndPoints } from "../api/axiosConfig";
-import { deleteAxios, getAxios, putAxios } from "../api/genericApiCalls";
+import {
+  deleteAxios,
+  getAxios,
+  postAxios,
+  putAxios,
+} from "../api/genericApiCalls";
 import { Todo } from "../models/todoType";
 import MainLayout from "../views/MainLayout";
 import * as S from "./Pages.style";
 import useBudget from "../hooks/useBudget";
+import FormSubmission from "../components/FormSubmission";
 
 const WorkTodosPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -59,6 +65,16 @@ const WorkTodosPage = () => {
     }
   };
 
+  const handleSubmit = async (values: any) => {
+    try {
+      const { data } = await postAxios<Todo>(EndPoints.todos, values);
+      const newTodos = [...todos, data];
+      setTodos(newTodos);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <MainLayout>
       <div style={{ margin: "6rem 0" }}>
@@ -74,39 +90,40 @@ const WorkTodosPage = () => {
         >
           GET RANDOM
         </S.Button>
-        {todos.map((t, index) => {
-          console.log(t.id);
-
-          return (
-            <S.ItemWrapper key={t.id} data-testid="todo-item">
-              <div>
-                {t.completed ? (
-                  <S.IconWrapper>
-                    <CheckIcon
-                      onClick={async () => await updateWorkTodoAsync(t.id, t)}
-                    />
-                  </S.IconWrapper>
-                ) : (
-                  <S.IconWrapper>
-                    <CircleIcon
-                      onClick={async () => await updateWorkTodoAsync(t.id, t)}
-                    />
-                  </S.IconWrapper>
-                )}
-              </div>
-              <S.ItemName
-                done={t.completed}
-                onClick={async () => {
-                  // delete if todo id done or completed
-                  if (t.completed) await deleteWorkTodoAsync(t.id);
-                }}
-              >
-                {t.title}
-              </S.ItemName>
-            </S.ItemWrapper>
-          );
-        })}
       </div>
+      <FormSubmission save={handleSubmit} />
+      {todos.map((t, index) => {
+        console.log(t.id);
+
+        return (
+          <S.ItemWrapper key={t.id} data-testid="todo-item">
+            <div>
+              {t.completed ? (
+                <S.IconWrapper>
+                  <CheckIcon
+                    onClick={async () => await updateWorkTodoAsync(t.id, t)}
+                  />
+                </S.IconWrapper>
+              ) : (
+                <S.IconWrapper>
+                  <CircleIcon
+                    onClick={async () => await updateWorkTodoAsync(t.id, t)}
+                  />
+                </S.IconWrapper>
+              )}
+            </div>
+            <S.ItemName
+              done={t.completed}
+              onClick={async () => {
+                // delete if todo id done or completed
+                if (t.completed) await deleteWorkTodoAsync(t.id);
+              }}
+            >
+              {t.title}
+            </S.ItemName>
+          </S.ItemWrapper>
+        );
+      })}
       <h3>{loading ? "Loading..." : "You have " + todos.length + " todos"}</h3>
     </MainLayout>
   );

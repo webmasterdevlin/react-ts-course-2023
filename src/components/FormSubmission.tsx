@@ -30,7 +30,7 @@ const FormSubmission = ({ save }: Props) => {
               data-testid="todo-input"
             />
             <S.Button
-              disabled={formikProps.values.title.length < 2}
+              disabled={!formikProps.dirty || !!formikProps.errors.title}
               type="submit"
               data-testid="save-todo"
             >

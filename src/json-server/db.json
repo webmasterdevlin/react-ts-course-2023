@@ -1,19 +1,64 @@
 {
-  "posts": [
+  "todos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": "7fguyfh",
+      "title": "quis ut nam facilis et officia qui",
+      "completed": false
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "7876dcgh67re65dgf8f",
+      "title": "fugiat veniam minus",
+      "completed": true
+    },
+    {
+      "id": "90yhiult67r",
+      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "completed": false
+    },
+    {
+      "id": "8t7ufjhfghf",
+      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+      "completed": false
+    },
+    {
+      "id": "67rikutgjhgj",
+      "title": "illo expedita consequatur quia in",
+      "completed": false
+    },
+    {
+      "id": "fujiuy986y7t",
+      "title": "quo adipisci enim quam ut ab",
+      "completed": true
+    },
+    {
+      "id": "nkjhkh09u89",
+      "title": "molestiae perspiciatis ipsa",
+      "completed": false
+    },
+    {
+      "id": "8tu76frkit6r",
+      "title": "illo est ratione doloremque quia maiores aut",
+      "completed": true
+    },
+    {
+      "id": "gulkt87t76r87t",
+      "title": "vero rerum temporibus dolor",
+      "completed": true
+    },
+    {
+      "id": "E9-hWEi",
+      "title": "ggg",
+      "completed": false
+    },
+    {
+      "id": "Tj2zh8s",
+      "title": "hkjhjk",
+      "completed": false
+    },
+    {
+      "id": "HDzl3uU",
+      "title": "hkjhjkh",
+      "completed": false
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -13,10 +13,12 @@ describe("Work Todos page", () => {
 
   it("should generate random budget", async () => {
     render(<WorkTodosPage />);
+
+    expect(screen.getByTestId("random-budget")).toBeInTheDocument();
+
     const button = await screen.findByTestId("random-button");
     userEvent.click(button);
 
-    expect(screen.getByTestId("random-budget")).toBeInTheDocument();
-    expect(screen.getByTestId("random-budget")).not.toContainEqual("0");
+    expect(screen.getByTestId("random-budget")).not.toHaveValue("0");
   });
 });

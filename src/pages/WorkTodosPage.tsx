@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Check as CheckIcon, Circle as CircleIcon } from "react-feather";
 
 import { EndPoints } from "../api/axiosConfig";
-import { getAxios } from "../api/genericApiCalls";
+import { deleteAxios, getAxios } from "../api/genericApiCalls";
 import { Todo } from "../models/todoType";
 import MainLayout from "../views/MainLayout";
 import * as S from "./Pages.style";
@@ -30,28 +30,51 @@ const WorkTodosPage = () => {
     setLoading(false);
   };
 
+  const deleteWorkTodoAsync = async (id: string) => {
+    setLoading(true);
+    try {
+      await deleteAxios(EndPoints.todos, id);
+      // remove the selected item from the todos
+      const filteredTodos = todos.filter((t) => t.id !== id);
+
+      // update the UI
+      setTodos(filteredTodos);
+    } catch (e) {}
+    setLoading(false);
+  };
+
   return (
     <MainLayout>
       <div style={{ margin: "6rem 0" }}>
         <h1>Work Todos Page Works! {randomValues}</h1>
-        {todos.map((t) => (
-          <S.ItemWrapper key={t.id} data-testid="todo-item">
-            <div>
-              {t.completed ? (
-                <S.IconWrapper>
-                  <CheckIcon onClick={() => {}} />
-                </S.IconWrapper>
-              ) : (
-                <S.IconWrapper>
-                  <CircleIcon onClick={() => {}} />
-                </S.IconWrapper>
-              )}
-            </div>
-            <S.ItemName done={t.completed} onClick={() => {}}>
-              {t.title}
-            </S.ItemName>
-          </S.ItemWrapper>
-        ))}
+        {todos.map((t) => {
+          console.log(t.id);
+
+          return (
+            <S.ItemWrapper key={t.id} data-testid="todo-item">
+              <div>
+                {t.completed ? (
+                  <S.IconWrapper>
+                    <CheckIcon onClick={() => {}} />
+                  </S.IconWrapper>
+                ) : (
+                  <S.IconWrapper>
+                    <CircleIcon onClick={() => {}} />
+                  </S.IconWrapper>
+                )}
+              </div>
+              <S.ItemName
+                done={t.completed}
+                onClick={async () => {
+                  // delete if todo id done or completed
+                  if (t.completed) await deleteWorkTodoAsync(t.id);
+                }}
+              >
+                {t.title}
+              </S.ItemName>
+            </S.ItemWrapper>
+          );
+        })}
       </div>
       <h3>{loading ? "Loading..." : "You have " + todos.length + " todos"}</h3>
     </MainLayout>

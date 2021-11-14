@@ -8,7 +8,7 @@
     {
       "id": "7876dcgh67re65dgf8f",
       "title": "fugiat veniam minus",
-      "completed": true
+      "completed": false
     },
     {
       "id": "90yhiult67r",
@@ -28,7 +28,7 @@
     {
       "id": "fujiuy986y7t",
       "title": "quo adipisci enim quam ut ab",
-      "completed": true
+      "completed": false
     },
     {
       "id": "nkjhkh09u89",
@@ -38,27 +38,22 @@
     {
       "id": "8tu76frkit6r",
       "title": "illo est ratione doloremque quia maiores aut",
-      "completed": true
+      "completed": false
     },
     {
       "id": "gulkt87t76r87t",
       "title": "vero rerum temporibus dolor",
-      "completed": true
-    },
-    {
-      "id": "E9-hWEi",
-      "title": "ggg",
-      "completed": true
+      "completed": false
     },
     {
       "id": "Tj2zh8s",
       "title": "hkjhjk",
-      "completed": true
+      "completed": false
     },
     {
       "id": "HDzl3uU",
       "title": "hkjhjkh",
-      "completed": true
+      "completed": false
     }
   ]
 }

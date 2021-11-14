@@ -6,13 +6,17 @@ import { getAxios } from "../api/genericApiCalls";
 import { Todo } from "../models/todoType";
 import MainLayout from "../views/MainLayout";
 import * as S from "./Pages.style";
+import useBudget from "../hooks/useBudget";
 
 const WorkTodosPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const { randomValues, createRandomBudget } = useBudget();
+
   useEffect(() => {
     getTodosAsync();
+    createRandomBudget();
   }, []);
 
   const getTodosAsync = async () => {
@@ -29,7 +33,7 @@ const WorkTodosPage = () => {
   return (
     <MainLayout>
       <div style={{ margin: "6rem 0" }}>
-        <h1>Work Todos Page Works! {todos.length}</h1>
+        <h1>Work Todos Page Works! {randomValues}</h1>
         {todos.map((t) => (
           <S.ItemWrapper key={t.id} data-testid="todo-item">
             <div>

@@ -31,7 +31,17 @@ const WorkTodosPage = () => {
       <h1>Work Todos Page Works! {todos.length}</h1>
       {todos.map((t) => (
         <S.IconWrapper key={t.id}>
-          <div>{t.title}</div>
+          <div>
+            {t.completed ? (
+              <S.IconWrapper>
+                <CheckIcon onClick={() => {}} />
+              </S.IconWrapper>
+            ) : (
+              <S.IconWrapper>
+                <CircleIcon onClick={() => {}} />
+              </S.IconWrapper>
+            )}
+          </div>
         </S.IconWrapper>
       ))}
     </MainLayout>

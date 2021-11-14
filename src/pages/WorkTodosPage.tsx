@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import MainLayout from "../views/MainLayout";
 
 const WorkTodosPage = () => {
+  
   useEffect(() => {
-    fetch("/api/todos");
+  
   }, []);
 
   return (

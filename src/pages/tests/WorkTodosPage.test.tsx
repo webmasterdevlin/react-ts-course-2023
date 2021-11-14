@@ -10,4 +10,13 @@ describe("Work Todos page", () => {
     const todos = await screen.findAllByTestId(/todo-item/i);
     expect(todos).toHaveLength(2);
   });
+
+  it("should generate random budget", async () => {
+    render(<WorkTodosPage />);
+    const button = await screen.findByTestId("random-button");
+    userEvent.click(button);
+
+    expect(screen.getByTestId("random-budget")).toBeInTheDocument();
+    expect(screen.getByTestId("random-budget")).not.toContainEqual("0");
+  });
 });

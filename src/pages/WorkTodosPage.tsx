@@ -46,12 +46,14 @@ const WorkTodosPage = () => {
     <MainLayout>
       <div style={{ margin: "6rem 0" }}>
         <h2>
-          Budget for the day: $<span>{randomValues}</span>
+          Budget for the day: $
+          <span data-testid="random-budget">{randomValues}</span>
         </h2>
         <S.Button
           backgroundColor={"dodgerblue"}
           type={"button"}
           onClick={createRandomBudget}
+          data-testid="random-button"
         >
           GET RANDOM
         </S.Button>

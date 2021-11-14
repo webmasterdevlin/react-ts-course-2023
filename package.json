@@ -54,6 +54,7 @@
     "@types/yup": "^0.29.13",
     "concurrently": "^6.4.0",
     "cypress": "^9.0.0",
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "msw": "^0.35.0"
   }
 }

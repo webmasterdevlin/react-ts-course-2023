@@ -8,6 +8,7 @@
 - tailwindcss
 - material-ui
 - antd
+- chakra ui
 - styled-components
 - emotion
 

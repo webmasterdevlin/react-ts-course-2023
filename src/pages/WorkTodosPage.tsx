@@ -94,9 +94,7 @@ const WorkTodosPage = () => {
         </S.Button>
       </div>
       <FormSubmission save={handleSubmit} />
-      {todos.map((t, index) => {
-        console.log(t.id);
-
+      {todos.map((t) => {
         return (
           <S.ItemWrapper key={t.id} data-testid="todo-item">
             <div>

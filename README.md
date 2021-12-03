@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Steps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- npx create-react-app my-app --template=typescript
 
-## Available Scripts
+## Create pages and routers
 
-In the project directory, you can run:
+#### Setting up the routers is a one time setup.
 
-### `npm start`
+#### Future pages will be registered in your router.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- create ./src/pages/HomePage.tsx, ./src/pages/AnotherPage.tsx, etc, with the name of the page as the h1 for POC
+- npm i react-router react-router-dom
+- create a component, EagerRoutes.tsx, to register the pages
+- use the EagerRoutes component in the App.tsx with BrowserRouter
+- run the application and navigate to different pages using the URL field of the browser
+- create another component for routing and name it LazyRoutes.tsx
+- register the pages in the LazyRoutes
+- use the LazyRoutes component in the App.tsx with BrowserRouter
+- run the application and navigate to different pages using the URL field of the browser
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Create navigation bar
 
-### `npm test`
+- create a component, NavigationBar.tsx
+- Add links/menus for different pages in the NavigationBar
+- run the application and try to navigate using the menus
+- create styling for the navigation bar
+- create a views folder, ./src/views/
+- create a layout template for the pages and put it in the ./src/views/MainLayout.tsx
+- run the application to see if it works
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Set up React Testing Library
 
-### `npm run build`
+- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Model/Schema
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- create ./src/models/todoType.ts or ./src/models/todoModel.ts
+- create other models if needed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Set up axios for API calls
 
-### `npm run eject`
+- create ./src/api/axiosConfig.ts
+- this is also where interceptors will be added for header authorization if needed
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Set up generic http services
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- create ./src/api/genericApiCalls.ts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Set up json-server and concurrently
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- npm i -D json-server concurrently
+- create ./src/json-server/db.json and ./src/json-server/routes.json
+- add proxy in the packages.json
 
-## Learn More
+## Create the page that will render the list of todos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- create ./src/pages/WorkTodosPage.tsx
+- write the local states for the page
+- write a function to fetch the todos
+- add the fetch function to the useEffect hook
+- run the application and see the network tab of DevTools if response is 200ok
+- use the map array utility to render all the todos.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Set up MSW for mocking API calls
+
+- npm i -D msw
+- the msw is a mocking library which will intercept the requests and responses in the integration tests
+- create ./src/mocks/handler/todoHandler.ts
+- create ./src/mocks/handler/index.ts
+- create ./src/mocks/server.ts
+- update the ./src/setupTests.ts
+
+## Integration tests
+
+- write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/tests/WorkTodosPage.test.ts
+- run the tests, npm run test, and see if the todos are rendered
+
+## Delete todo
+
+- create a function to delete a todo
+- create a button to delete a todo
+
+## Add todo
+
+- create a function to add a todo
+- create a button to add a todo
+
+## Update todo
+
+- create a function to update a todo
+- create a button to update a todo
+
+## Custom Hooks
+
+- create ./src/hooks/useBudget.ts
+- use the useBudget hook on the WorkTodosPage.tsx
+- create the button and presentation for the budget
+
+## Custom Hooks Test
+
+- add a test for the useBudget hook on the WorkTodosPage.test.ts

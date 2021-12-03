@@ -91,6 +91,7 @@
 
 ## Add todo
 
+- npm i formik yup
 - create a function to add a todo
 - create a button to add a todo
 

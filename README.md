@@ -83,7 +83,7 @@
 
 ## Integration tests
 
-- write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/tests/WorkTodosPage.test.ts
+- write integration tests for the fetch todos function of WorkTodosPage.tsx by creating ./src/pages/tests/WorkTodosPage.test.ts
 - run the tests, npm run test, and see if the todos are rendered
 
 ## Delete todo

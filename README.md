@@ -28,10 +28,6 @@
 - create a layout template for the pages and put it in the ./src/views/MainLayout.tsx
 - run the application to see if it works
 
-## Set up React Testing Library
-
-- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
-
 ## Model/Schema
 
 - create ./src/models/todoType.ts or ./src/models/todoModel.ts
@@ -60,6 +56,10 @@
 - add the fetch function to the useEffect hook
 - run the application and see the network tab of DevTools if response is 200ok
 - use the map array utility to render all the todos.
+
+## Set up React Testing Library
+
+- create ./src/test-utils/testing-library-util.tsx that will be a copy of the root component
 
 ## Set up MSW for mocking API calls
 

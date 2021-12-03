@@ -1,6 +1,15 @@
 # Steps
 
 - npx create-react-app my-app --template=typescript
+- cd my-app
+
+## Pick your UI library or UI framework
+
+- tailwindcss
+- material-ui
+- antd
+- styled-components
+- emotion
 
 ## Create pages and routers
 

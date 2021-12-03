@@ -43,7 +43,7 @@
 - create other models if needed
 
 ## Set up axios for API calls
-
+- npm i axios
 - create ./src/api/axiosConfig.ts
 - this is also where interceptors will be added for header authorization if needed
 

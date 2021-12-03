@@ -43,6 +43,7 @@
 - create other models if needed
 
 ## Set up axios for API calls
+
 - npm i axios
 - create ./src/api/axiosConfig.ts
 - this is also where interceptors will be added for header authorization if needed
@@ -56,6 +57,7 @@
 - npm i -D json-server concurrently
 - create ./src/json-server/db.json and ./src/json-server/routes.json
 - add proxy in the packages.json
+- update the scripts
 
 ## Create the page that will render the list of todos
 
@@ -63,7 +65,7 @@
 - write the local states for the page
 - write a function to fetch the todos
 - add the fetch function to the useEffect hook
-- run the application and see the network tab of DevTools if response is 200ok
+- run the application, npm run start:fullstack, and see the network tab of DevTools if response is 200ok
 - use the map array utility to render all the todos.
 
 ## Set up React Testing Library

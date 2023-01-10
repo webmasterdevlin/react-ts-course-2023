@@ -1,3 +1,7 @@
+### New Stack! 
+- Go to tailwind-css branch https://github.com/webmasterdevlin/react-ts-course-2023/tree/tailwind-css
+- It uses pnpm (replacing npm), Vite (replacing Webpack), and Tailwind (replacing MUI)
+
 # Steps
 
 - npx create-react-app my-app --template=typescript

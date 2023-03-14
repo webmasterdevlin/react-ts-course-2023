@@ -1,34 +1,23 @@
-import { useLocation, useNavigate } from "react-router";
-import { pathNames } from "../LazyRoutes";
-import * as S from "./NavigationBar.style";
+import { useLocation, useNavigate } from 'react-router';
+import { pathNames } from '../LazyRoutes';
+import NavigationMenu from './NavigationMenu';
 
 const NavigationBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   return (
-    <div data-testid="navigation">
-      <S.NavButton
-        data-testid="work-button"
-        active={pathNames.work === pathname}
-        onClick={() => navigate(pathNames.work)}
-      >
-        WORK TODOS
-      </S.NavButton>
-      <S.NavButton
-        data-testid="shop-button"
-        active={pathNames.shoppingList === pathname}
-        onClick={() => navigate(pathNames.shoppingList)}
-      >
-        SHOPPING LIST
-      </S.NavButton>
-      <S.NavButton
-        active={pathNames.auth === pathname}
-        onClick={() => navigate(pathNames.auth)}
-      >
-        LOGIN
-      </S.NavButton>
-    </div>
+    <nav className={'w-full bg-gray-100 pb-10 font-sans shadow'}>
+      <div className="bg-blue-900">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-start gap-2 py-4">
+            <NavigationMenu pathname={pathNames.work} label={'work todos'} />
+            <NavigationMenu pathname={pathNames.shoppingList} label={'shopping list'} />
+            <NavigationMenu pathname={pathNames.auth} label={'login'} />
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 

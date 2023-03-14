@@ -1,9 +1,7 @@
-import React, { ReactNode } from "react";
+import React from 'react';
+import type { ReactNode } from 'react';
 
-/* S or s are the writing conventions in importing styled components*/
-import * as S from "./MainLayout.style";
-
-/*for containment of any pages*/
+/* for containment of any pages*/
 type Props = {
   children?: ReactNode;
 };
@@ -13,9 +11,9 @@ type Props = {
  * */
 const MainLayout = ({ children }: Props) => {
   return (
-    <S.Wrapper>
-      <S.SecondaryWrapper>{children}</S.SecondaryWrapper>
-    </S.Wrapper>
+    <div className={'bg-gray-100'}>
+      <div className={'container prose mx-auto'}>{children}</div>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
-import MainLayout from "../views/MainLayout";
+import MainLayout from '../views/MainLayout';
 
 const LoginPage = () => {
   return (
     <MainLayout>
-      <h1>Login Page Works!</h1>
+      <h1>{import.meta.env.VITE_APP_TITLE}</h1>
+      <h2>Login Page Works!</h2>
     </MainLayout>
   );
 };

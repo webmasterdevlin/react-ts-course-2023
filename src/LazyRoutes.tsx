@@ -1,30 +1,47 @@
-import React, { ElementType, lazy, Suspense } from "react";
-import { RouteObject, useRoutes } from "react-router";
+import React, { lazy, Suspense } from 'react';
+import { useRoutes } from 'react-router';
+import type { ElementType } from 'react';
+import type { RouteObject } from 'react-router';
 
 /*
  * Suspense is a component that wraps the custom components and enables them to communicate
  *  to React that they're waiting for some data to load before the component is rendered.
  * */
-const Loadable = (Component: ElementType) => (props: any) =>
-  (
-    <Suspense fallback={<h1>Loading</h1>}>
-      <Component {...props} />
-    </Suspense>
-  );
+const Loadable = (Component: ElementType) => {
+  const LazyComponents = (props: any) => {
+    return (
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Component {...props} />
+      </Suspense>
+    );
+  };
+
+  return LazyComponents;
+};
 
 /* Lazy Loaded Todos Pages for code splitting*/
-const WorkTodosPage = Loadable(lazy(() => import("./pages/WorkTodosPage")));
-const ShoppingListPage = Loadable(
-  lazy(() => import("./pages/ShoppingListPage"))
+const WorkTodosPage = Loadable(
+  lazy(() => {
+    return import('./pages/WorkTodosPage');
+  }),
 );
-const LoginPage = Loadable(lazy(() => import("./pages/LoginPage")));
+const ShoppingListPage = Loadable(
+  lazy(() => {
+    return import('./pages/ShoppingListPage');
+  }),
+);
+const LoginPage = Loadable(
+  lazy(() => {
+    return import('./pages/LoginPage');
+  }),
+);
 
 type Paths = { work: string; shoppingList: string; auth: string };
 /* we will reuse this in creating todos */
 export const pathNames: Paths = {
-  work: "/",
-  shoppingList: "/shopping-list",
-  auth: "/auth",
+  work: '/',
+  shoppingList: '/shopping-list',
+  auth: '/auth',
 };
 
 /*

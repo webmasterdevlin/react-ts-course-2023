@@ -1,17 +1,18 @@
-import { api } from "./axiosConfig";
+import { api } from './axiosConfig';
+import type { EndPointsKeys } from './axiosConfig';
 
-export async function getAxios<T>(endpoint: string) {
+export async function getAxios<T>(endpoint: EndPointsKeys) {
   return await api.get<T>(endpoint);
 }
 
-export async function deleteAxios<T>(endpoint: string, id: string) {
+export async function deleteAxios<T>(endpoint: EndPointsKeys, id: string) {
   return await api.delete<T>(`${endpoint}/${id}`);
 }
 
-export async function postAxios<T>(endpoint: string, arg: T) {
+export async function postAxios<T>(endpoint: EndPointsKeys, arg: T) {
   return await api.post<T>(`${endpoint}`, arg);
 }
 
-export async function putAxios<RT, BT>(endpoint: string, id: string, arg: BT) {
+export async function putAxios<RT, BT>(endpoint: EndPointsKeys, id: string, arg: BT) {
   return await api.put<RT>(`${endpoint}/${id}`, arg);
 }

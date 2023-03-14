@@ -1,4 +1,4 @@
-import MainLayout from "../views/MainLayout";
+import MainLayout from '../views/MainLayout';
 
 const ShoppingListPage = () => {
   return (

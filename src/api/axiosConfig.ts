@@ -1,9 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "/api/",
+  baseURL: '/api/',
 });
 
 export const EndPoints = {
-  todos: "todos",
-};
+  todos: 'todos',
+  users: 'users',
+} as const;
+
+export type EndPointsKeys = keyof typeof EndPoints;

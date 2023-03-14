@@ -3,7 +3,9 @@
   "compilerOptions": {
     "types": ["cypress", "@testing-library/cypress"],
     "isolatedModules": false,
-    "allowJs": true
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
   },
   "include": ["./**/*.ts"],
   "exclude": []

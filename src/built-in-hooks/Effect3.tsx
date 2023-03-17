@@ -20,7 +20,7 @@ export default function Effect3({ cost, discount }: Props) {
     console.log('useEffect 3: ', cost - discount);
   }, []);
 
-  // const { total } = useAudioEqualizer(cost, discount);
+  // const { total } = useItemDiscounts(cost, discount);
 
   return (
     <>

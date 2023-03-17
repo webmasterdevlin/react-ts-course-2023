@@ -18,18 +18,18 @@ import Effect3 from './built-in-hooks/Effect3';
 const App = () => {
   return (
     <BrowserRouter>
-      {/* <div className="container mx-auto px-4"> */}
-      {/* <State /> */}
-      {/* <Effect1 /> */}
-      {/* <Effect2 /> */}
-      {/* <Effect3 cost={20} discount={4} /> */}
-      {/* <Memo /> */}
-      {/* <Callback /> */}
-      {/* <Ref /> */}
-      {/* </div> */}
+      <div className="container prose mx-auto px-4">
+        {/* <State /> */}
+        {/* <Effect1 /> */}
+        {/* <Effect2 /> */}
+        {/* <Effect3 cost={20} discount={4} /> */}
+        {/* <Memo /> */}
+        {/* <Callback /> */}
+        <Ref />
+      </div>
 
-      <NavigationBar />
-      <LazyRoutes />
+      {/* <NavigationBar /> */}
+      {/* <LazyRoutes /> */}
     </BrowserRouter>
   );
 };

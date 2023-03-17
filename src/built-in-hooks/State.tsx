@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '../components/Button';
 import type { User } from './models/user';
 
 // React Hooks are simple JavaScript functions that we can use to isolate the reusable part from a functional component.
@@ -35,20 +36,20 @@ export default function State() {
 
   return (
     <>
-      <div>
-        <button onClick={decrementCount} className="btn btn--secondary">
+      <div className="mb-10 flex">
+        <Button color="primary" onClick={decrementCount}>
           DECREMENT
-        </button>
-        <div className="my-5">
-          <span>{count}</span>
+        </Button>
+        <div className="m-5">
+          <span>{count} : </span>
           <span>{theme}</span>
         </div>
-        <button onClick={incrementCount} className="btn btn--primary">
+        <Button color="primary" onClick={incrementCount}>
           INCREMENT
-        </button>
+        </Button>
       </div>
-      <section>
-        <p>
+      <section className="mb-8">
+        <p className="text-indigo-800">
           {user.firstName} {user.lastName}
         </p>
       </section>

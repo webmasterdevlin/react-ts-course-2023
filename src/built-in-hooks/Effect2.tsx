@@ -22,5 +22,5 @@ export default function Effect2() {
     };
   }, []);
 
-  return <>{windowWidth}</>;
+  return <h1>{windowWidth}</h1>;
 }

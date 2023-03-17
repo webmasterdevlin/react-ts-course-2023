@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Button from '../components/Button';
 
 // The React useMemo Hook returns a memoized value.
 // Think of memoization as caching a value so that it does not need to be recalculated.
@@ -36,15 +37,14 @@ export default function Memo() {
   return (
     <>
       <input
-        className="field"
         type="number"
         value={number}
         onChange={e => {
           return setNumber(parseInt(e.target.value));
         }}
       />
-      <button
-        className="btn btn--secondary"
+      <Button
+        color="primary"
         onClick={() => {
           return setDark(prevDark => {
             return !prevDark;
@@ -52,7 +52,7 @@ export default function Memo() {
         }}
       >
         Change Theme
-      </button>
+      </Button>
       <div style={themeStyles}>{doubleNumber}</div>
     </>
   );
@@ -60,6 +60,8 @@ export default function Memo() {
 
 function slowFunction(num: number) {
   console.log('Calling slow function');
-  for (let i = 0; i <= 1000000000; i++) {}
+  for (let i = 0; i <= 1000000000; i++) {
+    // console.log('i', i);
+  }
   return num * 2;
 }

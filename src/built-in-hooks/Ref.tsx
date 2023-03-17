@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Button from '../components/Button';
 import Card from './components/Card';
 import type { ChangeEvent } from 'react';
 
@@ -24,14 +25,13 @@ export default function Ref() {
   return (
     <>
       <input
-        className="field"
-        ref={inputRef} // inputRef.current = input element
-        // value={inputRef.current?.value} // no need to set value
+        // ref={inputRef} // inputRef.current = input element
+        value={inputRef.current?.value} // no need to set value
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          if (inputRef.current) {
-            inputRef.current.value = e.target.value; // does not cause re-render
-          }
-          console.log(inputRef.current?.value);
+          // if (inputRef.current) {
+          //   inputRef.current.value = e.target.value; // does not cause re-render
+          // }
+          console.log('logs:', { event: e.target.value, inputRef: inputRef.current?.value });
           setName(e.target.value); // causes re-render
         }}
       />
@@ -39,9 +39,9 @@ export default function Ref() {
         <h2>My name is {inputRef.current?.value}</h2>
         <h3>Previous value is {prevNameRef.current}</h3>
       </div>
-      <button className="btn btn--primary" onClick={focus}>
+      <Button color="primary" onClick={focus}>
         Focus
-      </button>
+      </Button>
       <Card name={inputRef?.current?.value as string} />
     </>
   );

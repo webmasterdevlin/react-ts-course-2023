@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '../components/Button';
 import List from './components/List';
 
 // The React useCallback Hook returns a memoized callback function.
@@ -13,18 +14,16 @@ export default function Callback() {
   const [dark, setDark] = useState(false);
 
   // imagine this function is resource intensive or an HTTP request
-  const fetchItems = () => {
+  const fetchItems = (incrementor: number) => {
     // This function gets re-created on every render.
-    return [number, number + 1, number + 2];
+    console.log('HTTP GET fetching items');
+    return [number + incrementor, number + 1 + incrementor, number + 2 + incrementor];
   };
 
   // const fetchItems = useCallback(
   //   (incrementor: number) => {
-  //     return [
-  //       number + incrementor,
-  //       number + 1 + incrementor,
-  //       number + 2 + incrementor,
-  //     ];
+  //     console.log('HTTP GET fetching items');
+  //     return [number + incrementor, number + 1 + incrementor, number + 2 + incrementor];
   //   },
   //   [number],
   // );
@@ -37,15 +36,14 @@ export default function Callback() {
   return (
     <div style={theme}>
       <input
-        className="field"
         type="number"
         value={number}
         onChange={e => {
           return setNumber(parseInt(e.target.value));
         }}
       />
-      <button
-        className="btn btn--primary"
+      <Button
+        color="primary"
         onClick={() => {
           return setDark(prevDark => {
             return !prevDark;
@@ -53,7 +51,7 @@ export default function Callback() {
         }}
       >
         Toggle Theme
-      </button>
+      </Button>
       <List getItems={fetchItems} />
     </div>
   );

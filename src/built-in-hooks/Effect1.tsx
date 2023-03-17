@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Button from '../components/Button';
 
 // The useEffect Hook allows you to perform side effects in your components.
 // Some examples of side effects are: fetching data, directly updating the DOM, and timers.
@@ -31,35 +32,35 @@ export default function Effect1() {
 
   return (
     <>
-      <div>
-        <button
+      <div className="mb-4">
+        <Button
+          color="secondary"
           onClick={() => {
             return setResourceType('posts');
           }}
-          className="btn"
         >
           Posts
-        </button>
-        <button
+        </Button>
+        <Button
+          color="secondary"
           onClick={() => {
             return setResourceType('users');
           }}
-          className="btn"
         >
           Users
-        </button>
-        <button
+        </Button>
+        <Button
+          color="secondary"
           onClick={() => {
             return setResourceType('comments');
           }}
-          className="btn"
         >
           Comments
-        </button>
+        </Button>
       </div>
       <h1>{resourceType}</h1>
       {items?.map((item: any) => {
-        return <pre key={item.id}>{JSON.stringify(item)}</pre>;
+        return <p key={item.id}>{JSON.stringify(item)}</p>;
       })}
     </>
   );

@@ -1,11 +1,7 @@
-import { useLocation, useNavigate } from 'react-router';
 import { pathNames } from '../LazyRoutes';
 import NavigationMenu from './NavigationMenu';
 
 const NavigationBar = () => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
   return (
     <nav className={'w-full bg-gray-100 pb-10 font-sans shadow'}>
       <div className="bg-blue-900">

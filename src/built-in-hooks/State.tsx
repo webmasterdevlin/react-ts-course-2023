@@ -62,7 +62,6 @@ export default function State() {
             onChange={e => {
               return setUser({ ...user, firstName: e.target.value });
             }}
-            className="field"
           />
         </section>
 
@@ -76,7 +75,6 @@ export default function State() {
                 return { ...prev, lastName: e.target.value };
               });
             }}
-            className="field"
           />
         </section>
       </div>

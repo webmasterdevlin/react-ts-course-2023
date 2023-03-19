@@ -25,11 +25,11 @@ const App = () => {
         {/* <Effect3 cost={20} discount={4} /> */}
         {/* <Memo /> */}
         {/* <Callback /> */}
-        <Ref />
+        {/* <Ref /> */}
       </div>
 
-      {/* <NavigationBar /> */}
-      {/* <LazyRoutes /> */}
+      <NavigationBar />
+      <LazyRoutes />
     </BrowserRouter>
   );
 };

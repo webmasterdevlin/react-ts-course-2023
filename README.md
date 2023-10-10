@@ -32,6 +32,7 @@
 
 - create a component, NavigationBar.tsx
 - Add links/menus for different pages in the NavigationBar
+- Import Navigation component in App.tsx
 - run the application and try to navigate using the menus
 - create styling for the navigation bar
 - create a views folder, ./src/views/

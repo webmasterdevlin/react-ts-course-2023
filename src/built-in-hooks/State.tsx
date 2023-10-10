@@ -66,7 +66,7 @@ export default function State() {
         </section>
 
         <section>
-          <label htmlFor="firstName">Last Name: </label>
+          <label htmlFor="lastName">Last Name: </label>
           <input
             id="lastName"
             value={user.lastName}

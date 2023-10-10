@@ -1,14 +1,14 @@
 import React, { lazy, Suspense } from 'react';
 import { useRoutes } from 'react-router';
-import type { ElementType } from 'react';
+import type { ComponentType, PropsWithChildren, FC } from 'react';
 import type { RouteObject } from 'react-router';
 
 /*
  * Suspense is a component that wraps the custom components and enables them to communicate
  *  to React that they're waiting for some data to load before the component is rendered.
  * */
-const Loadable = (Component: ElementType) => {
-  const LazyComponents = (props: any) => {
+const Loadable = <P extends object>(Component: ComponentType<P>) => {
+  const LazyComponents: FC<P> = (props: PropsWithChildren<P>) => {
     return (
       <Suspense fallback={<h1>Loading</h1>}>
         <Component {...props} />
@@ -39,9 +39,9 @@ const LoginPage = Loadable(
 type Paths = { work: string; shoppingList: string; auth: string };
 /* we will reuse this in creating todos */
 export const pathNames: Paths = {
-  work: '/',
-  shoppingList: '/shopping-list',
   auth: '/auth',
+  shoppingList: '/shopping-list',
+  work: '/',
 };
 
 /*
@@ -50,16 +50,16 @@ export const pathNames: Paths = {
  */
 const lazyRoutes: RouteObject[] = [
   {
-    path: pathNames.work,
     element: <WorkTodosPage />,
+    path: pathNames.work,
   },
   {
-    path: pathNames.shoppingList,
     element: <ShoppingListPage />,
+    path: pathNames.shoppingList,
   },
   {
-    path: pathNames.auth,
     element: <LoginPage />,
+    path: pathNames.auth,
   },
 ];
 

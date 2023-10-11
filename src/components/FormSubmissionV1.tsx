@@ -11,7 +11,7 @@ type Props = {
 const FormSubmission = ({ save }: Props) => {
   return (
     <Formik
-      initialValues={{ id: '', title: '', completed: false }}
+      initialValues={{ completed: false, id: '', title: '' }}
       validationSchema={yup.object({
         title: yup.string().label('Title').min(2).required(),
       })}

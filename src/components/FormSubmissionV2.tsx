@@ -19,8 +19,8 @@ const FormSubmission = ({ save }: Props) => {
     formState: { isValid, errors },
     reset,
   } = useForm<TodoFormSchemaType>({
-    resolver: zodResolver(TodoFormSchema),
     mode: 'all',
+    resolver: zodResolver(TodoFormSchema),
   });
 
   const onSubmit: SubmitHandler<TodoFormSchemaType> = async data => {

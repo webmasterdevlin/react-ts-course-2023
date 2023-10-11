@@ -34,6 +34,7 @@ const WorkTodosPage = () => {
     setLoading(true);
     try {
       await deleteAxios(EndPoints.todos, id);
+
       // remove the selected item from the todos
       const filteredTodos = todos.filter(t => {
         return t.id !== id;
@@ -47,15 +48,12 @@ const WorkTodosPage = () => {
     setLoading(false);
   };
 
-  const updateWorkTodoAsync = async (id: string, todo: Todo, index: number) => {
+  const updateWorkTodoAsync = async (todo: Todo) => {
     try {
-      const updatedTodo = { ...todo };
-      updatedTodo.completed = !todo.completed;
-      await putAxios<void, Todo>(EndPoints.todos, id, updatedTodo);
-
-      todos[index].completed = !todos[index].completed;
+      todo.completed = !todo.completed;
+      await putAxios<void, Todo>(EndPoints.todos, todo.id, todo);
+      // update the UI after sending the request to the server
       const updatedTodos = [...todos];
-
       setTodos(updatedTodos);
     } catch (e) {
       console.log(e);
@@ -85,41 +83,27 @@ const WorkTodosPage = () => {
 
       <FormSubmission save={handleSubmit} />
       <section className={'mb-10'}>
-        {todos.map((t, i) => {
+        {todos.map(t => {
           return (
             <div key={t.id} className={'mb-3 flex flex-row items-center justify-start'} data-testid={'todo-item'}>
               <div className={'mr-2'}>
                 {t.completed ? (
                   <CheckIcon
                     onClick={async () => {
-                      return await updateWorkTodoAsync(t.id, t, i);
+                      return await updateWorkTodoAsync(t);
                     }}
                   />
                 ) : (
                   <div>
                     <CircleIcon
                       onClick={async () => {
-                        return await updateWorkTodoAsync(t.id, t, i);
+                        return await updateWorkTodoAsync(t);
                       }}
                     />
                   </div>
                 )}
               </div>
               <Button
-                // NOT GOING TO WORK
-                // className={`text-${t.completed ? "blue" : "red"}-500 cursor-${
-                //   t.completed ? "pointer" : "auto"
-                // }`}
-
-                // NOT GOING TO WORK
-                // className={
-                //   "text-" +
-                //   (t.completed ? "blue" : "red") +
-                //   "-500 cursor-" +
-                //   (t.completed ? "pointer" : "auto")
-                // }
-
-                // WILL WORK
                 style={{ color: t.completed ? 'blue' : 'red' }}
                 onClick={async () => {
                   // delete if todo id done or completed
